@@ -89,4 +89,68 @@
       window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     });
   }
+  
+})();
+
+
+/* Parallax da fotografia principal da página da Grasi */
+(() => {
+  const image = document.querySelector(".grasi-parallax-image");
+
+  if (!image) return;
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
+
+  let frameRequested = false;
+
+  function updateGrasiParallax() {
+    frameRequested = false;
+
+    if (reducedMotion.matches) {
+      image.style.transform = "none";
+      return;
+    }
+
+    const container = image.closest(".grasi-parallax");
+
+    if (!container) return;
+
+    const rect = container.getBoundingClientRect();
+
+    if (rect.bottom < 0 || rect.top > window.innerHeight) {
+      return;
+    }
+
+    const distanceFromCenter =
+      rect.top + rect.height / 2 - window.innerHeight / 2;
+
+    const movement = Math.max(
+      -32,
+      Math.min(32, distanceFromCenter * -0.075)
+    );
+
+    image.style.transform =
+      `translate3d(0, ${movement}px, 0) scale(1.04)`;
+  }
+
+  function requestParallaxUpdate() {
+    if (frameRequested) return;
+
+    frameRequested = true;
+    window.requestAnimationFrame(updateGrasiParallax);
+  }
+
+  window.addEventListener("scroll", requestParallaxUpdate, {
+    passive: true
+  });
+
+  window.addEventListener("resize", requestParallaxUpdate, {
+    passive: true
+  });
+
+  reducedMotion.addEventListener?.("change", requestParallaxUpdate);
+
+  requestParallaxUpdate();
 })();
