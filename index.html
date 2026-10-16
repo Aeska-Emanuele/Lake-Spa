@@ -35,7 +35,7 @@
         <a href="index.html">Home</a>
         <a href="grasi.html">Grasiela</a>
         <a href="procedimentos.html">Procedimentos</a>
-        <a href="#contato">Contatos</a>
+        <a href="#voucher">Voucher presente</a>
       </nav>
 
       <a class="header-cta" href="https://lakespaselect.com/">Agende seu momento <span aria-hidden="true">↗</span></a>
@@ -88,9 +88,6 @@
           <article><h3>Resultados duradouros</h3><p>Emagrecimento saudável e redução de medidas com leveza</p></article>
           <article><h3>Nutrição inteligente</h3><p>Refeições leves e nutritivas, feitas para você</p></article>
         
-        </div>
-        <a class="button button-blue studio-booking" href="https://lakespaselect.com/">Agende seu momento <span aria-hidden="true">↗</span></a>
-      </div>
 
     </section>
 
@@ -98,22 +95,237 @@
       <div class="section-heading"><h2>Encontre seu momento<br>de <em>bem-estar.</em></h2><p>Consulte as massagens e experiências disponíveis pelo Lake Spa Select.</p></div>
 
       <div class="massage-strip">
-        <a class="massage-item" href="https://lakespaselect.com/"><span class="photo-slot massage-photo"><span>FOTO DA MASSAGEM</span><small>assets/imagens/massagem-01.jpg</small></span><span class="massage-caption"><span>EXPERIÊNCIA 01</span><strong>Ver massagens disponíveis</strong><i aria-hidden="true">↗</i></span></a>
-        <a class="massage-item" href="https://lakespaselect.com/"><span class="photo-slot massage-photo massage-photo-two"><span>FOTO DA MASSAGEM</span><small>assets/imagens/massagem-02.jpg</small></span><span class="massage-caption"><span>EXPERIÊNCIA 02</span><strong>Ver massagens disponíveis</strong><i aria-hidden="true">↗</i></span></a>
-        <a class="massage-item" href="https://lakespaselect.com/"><span class="photo-slot massage-photo massage-photo-three"><span>FOTO DA MASSAGEM</span><small>assets/imagens/massagem-03.jpg</small></span><span class="massage-caption"><span>EXPERIÊNCIA 03</span><strong>Ver massagens disponíveis</strong><i aria-hidden="true">↗</i></span></a>
+        <a class="massage-item" href="https://lakespaselect.com/"><span class="photo-slot massage-photo"><span>FOTO DA MASSAGEM</span><small>assets/imagens/massagem-01.jpg</small></span><span class="massage-caption"><strong>Ver massagens disponíveis</strong><i aria-hidden="true">↗</i></span></a>
+        <a class="massage-item" href="https://lakespaselect.com/"><span class="photo-slot massage-photo massage-photo-two"><span>FOTO DA MASSAGEM</span><small>assets/imagens/massagem-02.jpg</small></span><span class="massage-caption"><strong>Ver massagens disponíveis</strong><i aria-hidden="true">↗</i></span></a>
+        <a class="massage-item" href="https://lakespaselect.com/"><span class="photo-slot massage-photo massage-photo-three"><span>FOTO DA MASSAGEM</span><small>assets/imagens/massagem-03.jpg</small></span><span class="massage-caption"><strong>Ver massagens disponíveis</strong><i aria-hidden="true">↗</i></span></a>
       </div>
       
       <a class="button button-blue massage-cta" href="https://lakespaselect.com/">Ver no Lake Spa Select <span aria-hidden="true">↗</span></a>
     </section>
 
-    <section class="ideal section">
-      <div class="section-heading"><p class="eyebrow">O LAKE SPA</p><h2>Seu espaço para<br><em>se reconectar.</em></h2></div>
-      <ul class="ideal-list"><li><span>01</span><div><strong>Um tempo para você</strong><p>Uma pausa na rotina para viver seu momento com presença.</p></div></li><li><span>02</span><div><strong>Um espaço de cuidado</strong><p>Conheça o Studio e a proposta do Lake Spa.</p></div></li><li><span>03</span><div><strong>Experiências de massagem</strong><p>Descubra as opções disponíveis pelo Lake Spa Select.</p></div></li></ul>
-    </section>
 
-    <section class="select-cta" id="agendamento"><p class="eyebrow">LAKE SPA SELECT</p><h2>Seu próximo momento<br><em>começa aqui.</em></h2><p>Conheça as experiências e faça seu agendamento pelo Lake Spa Select.</p><a class="button button-light" href="https://lakespaselect.com/">Agende seu momento <span aria-hidden="true">↗</span></a></section>
-    <section class="final-cta"><p class="eyebrow">UM CONVITE PARA VOCÊ</p><h2>Permita-se<br><em>fazer uma pausa.</em></h2><a class="button button-blue" href="#">Agende seu momento <span aria-hidden="true">↗</span></a></section>
-  </main>
+<section class="voucher-section section" id="voucher">
+  <div class="voucher-heading">
+    <p class="eyebrow">UM PRESENTE ESPECIAL</p>
+    <h2>Presenteie com um momento de <em>bem-estar.</em></h2>
+    <p>
+      Transforme o cuidado em presente. Escolha uma experiência
+      de massagem no Lake Spa e surpreenda alguém especial.
+    </p>
+    <p class="voucher-heading-note">
+      Um presente pensado para proporcionar relaxamento,
+      cuidado e momentos especiais.
+    </p>
+  </div>
+
+  <form class="voucher-form" id="voucher-form">
+    <div class="voucher-form-heading">
+      <div>
+        <h3>Dados de quem presenteia</h3>
+        <p>Preencha seus dados para solicitar o voucher.</p>
+      </div>
+    </div>
+
+    <div class="voucher-fields">
+      <label class="voucher-field-full">
+        Nome completo
+        <input type="text" name="comprador" autocomplete="name"
+          required placeholder="Seu nome completo">
+      </label>
+
+      <label>
+        Data de nascimento
+        <input type="date" name="nascimento_comprador"
+          autocomplete="bday" required>
+      </label>
+
+      <label>
+        CPF
+        <input type="text" name="cpf" inputmode="numeric"
+          autocomplete="off" required
+          placeholder="000.000.000-00">
+      </label>
+
+      <label>
+        Celular / WhatsApp
+        <input type="tel" name="whatsapp_comprador"
+          autocomplete="tel" inputmode="tel"
+          required placeholder="DDD + número">
+      </label>
+
+      <label>
+        E-mail
+        <input type="email" name="email"
+          autocomplete="email" required
+          placeholder="seuemail@exemplo.com">
+      </label>
+    </div>
+
+    <div class="voucher-form-heading">
+      <span>02</span>
+      <div>
+        <h3>Dados de quem recebe</h3>
+        <p>Conte para nós quem será presenteado.</p>
+      </div>
+    </div>
+
+    <div class="voucher-fields">
+      <label class="voucher-field-full">
+        Nome completo do presenteado
+        <input type="text" name="presenteado"
+          required placeholder="Nome completo">
+      </label>
+
+      <label>
+        Celular do presenteado
+        <input type="tel" name="whatsapp_presenteado"
+          inputmode="tel" placeholder="DDD + número">
+      </label>
+
+      <label>
+        Data de nascimento
+        <input type="date" name="nascimento_presenteado">
+      </label>
+    </div>
+
+    <div class="voucher-form-heading">
+      <span>03</span>
+      <div>
+        <h3>Pagamento e voucher</h3>
+        <p>Escolha como deseja realizar o pagamento e receber o presente.</p>
+      </div>
+    </div>
+
+    <div class="voucher-fields">
+      <fieldset class="voucher-field-full">
+        <legend>Forma de pagamento</legend>
+
+        <label class="voucher-choice">
+          <input type="radio" name="pagamento"
+            value="Pix" required>
+          <span>
+            <strong>Pix</strong>
+            <small>O Lake Spa fornecerá os dados para pagamento.</small>
+          </span>
+        </label>
+
+        <label class="voucher-choice">
+          <input type="radio" name="pagamento"
+            value="Link de pagamento no cartão de crédito">
+          <span>
+            <strong>Link de pagamento</strong>
+            <small>Receba um link para realizar o pagamento no cartão de crédito.</small>
+          </span>
+        </label>
+      </fieldset>
+
+      <fieldset class="voucher-field-full">
+        <legend>Como deseja receber o voucher?</legend>
+
+        <label class="voucher-choice">
+          <input type="radio" name="entrega"
+            value="On-line" required>
+          <span>
+            <strong>Voucher on-line</strong>
+            <small>Após a confirmação do pagamento, o voucher será enviado digitalmente.</small>
+          </span>
+        </label>
+
+        <label class="voucher-choice">
+          <input type="radio" name="entrega"
+            value="Físico para retirada no Lake Spa">
+          <span>
+            <strong>Voucher físico</strong>
+            <small>Após a confirmação do pagamento, combine a retirada no Lake Spa.</small>
+          </span>
+        </label>
+      </fieldset>
+
+
+<label class="voucher-field-full">
+  Massagem ou procedimento
+  <select name="massagem" required>
+    <option value="">Selecione uma opção</option>
+
+    <option value="Massagem relaxante">Massagem relaxante</option>
+    <option value="Massagem terapêutica">Massagem terapêutica</option>
+    <option value="Massagem com pedras quentes">Massagem com pedras quentes</option>
+    <option value="Massagem com velas">Massagem com velas</option>
+    <option value="Drenagem linfática">Drenagem linfática</option>
+    <option value="Massagem modeladora">Massagem modeladora</option>
+    <option value="Reflexologia podal">Reflexologia podal</option>
+    <option value="Massagem nos pés">Massagem nos pés</option>
+
+    <option value="Ainda não decidi">Ainda não decidi</option>
+  </select>
+</label>
+
+
+      <label class="voucher-field-full">
+        Mensagem para o voucher
+        <span>Opcional · até 6 linhas</span>
+        <textarea name="dedicatoria" rows="4" maxlength="450"
+          placeholder="Escreva uma mensagem especial para acompanhar o presente..."></textarea>
+      </label>
+    </div>
+
+    <div class="voucher-notice">
+      <p>
+        <strong>Informações importantes sobre o voucher</strong>
+      </p>
+      <p>
+        Em caso de presente, o valor total do procedimento deverá
+        ser pago antecipadamente. O pagamento poderá ser realizado
+        via Pix, transferência bancária ou link de pagamento no
+        cartão de crédito.
+      </p>
+      <p>
+        Após a confirmação do pagamento, o voucher será enviado
+        on-line ou, se escolhida a versão física, poderá ser
+        retirado no Lake Spa.
+      </p>
+      <p>
+        A nota fiscal será enviada após a realização do serviço.
+        Para solicitar a reserva e viabilizar a emissão da nota
+        fiscal, é obrigatório informar o CPF do comprador.
+      </p>
+      <p>
+        O agendamento deverá ser solicitado em até 60 dias,
+        sujeito à disponibilidade da agenda do Lake Spa.
+      </p>
+    </div>
+
+<button type="submit" class="voucher-submit">
+  <svg
+    width="19"
+    height="19"
+    viewBox="0 0 24 24"
+    fill="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M20.4 11.8a8.4 8.4 0 0 1-12.5 7.3L3 20.4l1.4-4.7a8.4 8.4 0 1 1 16-3.9Z"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M8.5 8.2c.3-.6.6-.6.9-.6h.4c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .7.5.9 1.2 1.6 2.1 2.1.3.2.5.2.7 0l.8-.9c.2-.2.4-.2.7-.1l1.7.8c.3.1.4.3.4.5 0 .4-.2 1.2-.7 1.6-.5.5-1.2.7-2 .6-1.1-.2-2.5-.8-3.8-2-1.5-1.3-2.4-2.8-2.7-3.9-.3-1.1.1-1.9.5-2.3Z"
+      fill="currentColor"
+    />
+  </svg>
+  Enviar para WhatsApp
+</button>
+
+    <p class="voucher-privacy">
+      Ao enviar, os dados preenchidos serão incluídos na mensagem
+      encaminhada ao WhatsApp comercial do Lake Spa para atendimento
+      da solicitação.
+    </p>
+  </form>
+</section>
+
 
   <footer class="site-footer" id="contato"><div class="footer-main"><div><a class="brand footer-brand" href="index.html"><span class="brand-name">LAKE SPA</span><span class="brand-caption">BEM-ESTAR E CUIDADO</span></a><p>Um espaço para você.</p></div><div><span class="footer-title">NAVEGAÇÃO</span><a href="#inicio">Início</a><a href="#studio">Studio</a><a href="grasi.html">Grasi</a><a href="#massagens">Massagens</a></div><div><span class="footer-title">AGENDAMENTO</span><a href="https://lakespaselect.com/">Lake Spa Select ↗</a><a href="#contato">Contato</a></div></div><div class="footer-bottom"><span>© <span data-current-year></span> Lake Spa</span><span>LAKE SPA · BEM-ESTAR</span><a href="#inicio">VOLTAR AO TOPO ↑</a></div></footer>
 
