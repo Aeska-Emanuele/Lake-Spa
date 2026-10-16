@@ -1,4 +1,3 @@
-
 (() => {
   "use strict";
 
@@ -30,7 +29,10 @@
     });
 
     document.addEventListener("click", (event) => {
-      if (!navigation.contains(event.target) && !toggle.contains(event.target)) {
+      if (
+        !navigation.contains(event.target) &&
+        !toggle.contains(event.target)
+      ) {
         closeMenu();
       }
     });
@@ -41,7 +43,6 @@
     element.textContent = String(new Date().getFullYear());
   });
 
- 
   // Formulário de voucher
   const voucherForm = document.querySelector("#voucher-form");
 
@@ -79,12 +80,11 @@
         getValue("dedicatoria") || "Sem dedicatória.",
         "",
         "Gostaria de receber as orientações para confirmar o voucher, o valor e o pagamento.",
-        "Estou ciente de que o agendamento deve ser solicitado em até 60 dias e está sujeito à disponibilidade do Spa."
+        "Estou ciente de que o agendamento deve ser solicitado em até 60 dias e está sujeito à disponibilidade do Spa.",
       ].join("\n");
 
-      const whatsappNumber = "5537987996633";
-      const whatsappUrl =
-        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      const whatsappNumber = "553187996633";
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
       window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     });
