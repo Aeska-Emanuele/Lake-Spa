@@ -20,6 +20,7 @@
   --content-width: 1160px;
 }
 
+
 /* Geral */
 
 * {
@@ -33,12 +34,17 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
-  background: var(--lake-white);
+
   color: var(--lake-text);
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.7;
+  background-image: url(../assets/imagens/3.jpeg);
+  background-position: center top;
+  background-size: cover;
+  background-repeat: repeat-y;
+  background-attachment: fixed;
 }
 
 a {
@@ -519,7 +525,7 @@ h2 em {
 .benefits {
   padding-top: 78px;
   padding-bottom: 100px;
-  background: var(--lake-sage-soft);
+  background: transparent;
 }
 
 .benefit-grid {
@@ -566,18 +572,122 @@ h2 em {
   line-height: 1.7;
 }
 
-/* Reflexos naturais de luz — fundos das seções */
 
-/* Studio e Grasi */
 
-.feature {
-  display: grid;
-  width: min(var(--content-width), calc(100% - 64px));
-  grid-template-columns: 1.02fr 0.98fr;
+/* Feature Studio — imagem como fundo */
+
+.feature.feature-studio {
+  position: relative;
+  display: flex;
+  min-height: 620px;
   align-items: center;
-  gap: clamp(45px, 8vw, 100px);
+  justify-content: flex-start;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--lake-dark);
+  color: #fff;
+}
+
+.feature-studio .feature-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.feature-studio .feature-background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.feature-studio .feature-background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.feature-studio .feature-copy {
+  position: relative;
+  z-index: 1;
+  width: min(var(--content-width), calc(100% - 64px));
+  max-width: none;
   margin: 0 auto;
-  padding: 88px 0;
+  padding: 100px 0;
+  text-align: left;
+  color: white;
+}
+
+.feature-studio .feature-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(25, 43, 52, 0.76) 0%,
+    rgba(25, 43, 52, 0.48) 48%,
+    rgba(25, 43, 52, 0.12) 100%
+  );
+}
+
+.feature-studio .feature-copy {
+  position: relative;
+  z-index: 1;
+  width: min(var(--content-width), calc(100% - 64px));
+  margin: 0 auto;
+  padding-block: 100px;
+  text-align: left;
+}
+
+.feature-studio .feature-copy h2,
+.feature-studio .feature-copy h2 em,
+.feature-studio .feature-copy p,
+.feature-studio .feature-copy .eyebrow {
+  color: #ffffff;
+}
+
+.feature-studio .feature-copy h2 {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 0 20px;
+  color: #fff;
+  text-align: left;
+}
+
+.feature-studio .feature-copy h2 em {
+  color: white;
+}
+
+.feature-studio .feature-copy p {
+  width: 100%;
+  max-width: 510px;
+  margin: 0;
+  line-height: 1.8;
+  text-align: left;
+  color: white !important;
+}
+
+/* Mobile */
+
+@media (max-width: 820px) {
+  .feature-studio .feature-copy {
+    width: calc(100% - 40px);
+    margin-inline: auto;
+    padding-block: 76px;
+    text-align: left;
+  }
+
+  .feature-studio .feature-copy h2,
+  .feature-studio .feature-copy p {
+    text-align: left;
+  }
 }
 
 .feature-grasi {
@@ -624,6 +734,7 @@ h2 em {
 
 .feature-copy {
   max-width: 475px;
+ justify-content: center;
 }
 
 .feature-copy h2 {
@@ -633,7 +744,7 @@ h2 em {
 .feature-copy > p:not(.eyebrow) {
   max-width: 430px;
   margin-bottom: 25px;
-  color: var(--lake-muted);
+  color:white;
   font-size: 13px;
   line-height: 1.85;
 }
@@ -645,7 +756,7 @@ h2 em {
 /* Galeria do Studio */
 
 .studio-section {
-  background: #fff;
+  background: transparent;
 }
 
 .studio-details {
@@ -752,7 +863,7 @@ h2 em {
 .massages {
   padding-top: 75px;
   padding-bottom: 95px;
-  background: var(--lake-sage-soft);
+  background: transparent;
 }
 
 .massage-strip {
@@ -869,7 +980,7 @@ h2 em {
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
   align-items: start;
   gap: 56px;
-  background: var(--lake-white);
+  background: transparent;
   scroll-margin-top: 90px;
 }
 
@@ -1377,7 +1488,7 @@ h2 em {
 /* Página de procedimentos */
 .procedures-list {
   padding: 82px 24px 96px;
-  background: var(--lake-pale);
+  background: transparent;
 }
 
 .procedures-heading {
@@ -1663,6 +1774,88 @@ main {
   animation: contentEnter 0.7s ease both;
 }
 
+html {
+  scroll-padding-top: 88px;
+}
+
+main > section {
+  scroll-margin-top: 88px;
+}
+
+/* Rolagem com encaixe suave no desktop */
+@media (min-width: 821px) and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  main > section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+}
+
+/* Revelação suave dos elementos durante a rolagem */
+html.has-scroll-reveal .scroll-reveal {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 650ms ease,
+    transform 750ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+html.has-scroll-reveal .scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+/* Movimento sutil nas imagens */
+main > section.scroll-story-section .scroll-story-image {
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scale(1.015);
+}
+
+main > section.scroll-story-section.is-in-view .scroll-story-image {
+  transform: scale(1);
+}
+
+/* Ajustes isolados para celular */
+@media (max-width: 820px) {
+  html {
+    scroll-snap-type: none;
+    scroll-padding-top: 72px;
+  }
+
+  main > section {
+    scroll-snap-align: none;
+    scroll-margin-top: 72px;
+  }
+
+  html.has-scroll-reveal .scroll-reveal {
+    transform: translate3d(0, 16px, 0);
+    transition-duration: 500ms;
+  }
+}
+
+/* Acessibilidade: respeita a preferência por menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+    scroll-snap-type: none !important;
+  }
+
+  html.has-scroll-reveal .scroll-reveal,
+  html.has-scroll-reveal .scroll-reveal.is-visible,
+  main > section.scroll-story-section .scroll-story-image,
+  main > section.scroll-story-section.is-in-view .scroll-story-image {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
 @keyframes contentEnter {
   from {
     opacity: 0;
@@ -1674,178 +1867,23 @@ main {
 }
 
 
-/* ========================================
-   LAKE SPA — REFLEXOS ORGÂNICOS DE ÁGUA
-   ======================================== */
-
-.benefits,
-.studio-section,
-.massages,
-.select-cta,
-.voucher-section,
-.detail-story,
-.detail-gallery,
-.grasi-testimonials,
-.grasi-approach,
-.detail-end,
-.procedures-intro,
-.procedures-list {
-  position: relative;
-  isolation: isolate;
-}
-
-.benefits img,
-.studio-section img,
-.massages img,
-.select-cta img,
-.voucher-section img,
-.studio-gallery,
-.studio-gallery img {
-  position: relative;
-  z-index: 2;
-}
-
-.benefits,
-.studio-section,
-.massages,
-.select-cta,
-.detail-story,
-.detail-gallery,
-.grasi-testimonials,
-.grasi-approach,
-.detail-end,
-.procedures-intro,
-.procedures-list {
-  overflow: hidden;
-}
-
-.benefits > *,
-.studio-section > *,
-.massages > *,
-.select-cta > *,
-.voucher-section > *,
-.detail-story > *,
-.detail-gallery > *,
-.grasi-testimonials > *,
-.grasi-approach > *,
-.detail-end > *,
-.procedures-intro > *,
-.procedures-list > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Mantém o título do voucher fixo no desktop */
-.voucher-heading {
-  position: sticky;
-  top: 110px;
-}
-
-/* Reflexos irregulares, alongados e ondulados */
-.benefits::before,
-.studio-section::before,
-.massages::before,
-.voucher-section::before,
-.select-cta::before,
-.detail-story::before,
-.detail-gallery::before,
-.grasi-testimonials::before,
-.grasi-approach::before,
-.detail-end::before,
-.procedures-intro::before,
-.procedures-list::before {
-  content: "";
-  position: absolute;
-  inset: -45% -30%;
-  z-index: 0;
-  pointer-events: none;
-
- background:
-  repeating-linear-gradient(
-    168deg,
-    transparent 0%,
-    transparent 3%,
-    rgba(255, 255, 255, 0.08) 3.5%,
-    rgba(255, 255, 255, 0.45) 3.8%,
-    rgba(196, 225, 239, 0.20) 4.3%,
-    transparent 5.2%,
-    transparent 9%
-  ),
-  repeating-linear-gradient(
-    12deg,
-    transparent 0%,
-    transparent 5%,
-    rgba(255, 255, 255, 0.10) 5.5%,
-    rgba(255, 255, 255, 0.32) 5.8%,
-    transparent 6.8%,
-    transparent 12%
-  );
-
-  background-size: 145% 155%, 170% 145%;
-  background-position: 0% 0%, 100% 100%;
-  opacity: 0.85;
-  transform: skewY(-5deg);
-  animation: lakeWaterReflection 14s ease-in-out infinite alternate;
-}
-
-/* Imagens sempre acima dos reflexos */
-.benefits img,
-.studio-section img,
-.massages img,
-.select-cta img,
-.voucher-section img,
-.studio-gallery,
-.studio-gallery img,
-img {
-  position: relative;
-  z-index: 2;
-}
-
-@keyframes lakeWaterReflection {
-  0% {
-    background-position: 0% 10%, 100% 90%;
-    transform: translate3d(-2%, -1%, 0) skewY(-5deg);
-  }
-
-  50% {
-    background-position: 55% 65%, 35% 25%;
-    transform: translate3d(1%, 1.5%, 0) skewY(-2deg);
-  }
-
-  100% {
-    background-position: 100% 25%, 0% 70%;
-    transform: translate3d(-1%, 2%, 0) skewY(-6deg);
-  }
-}
-
-/* Movimento delicado em telas menores */
-@media (max-width: 820px) {
-  .benefits::before,
-  .studio-section::before,
-  .massages::before,
-  .voucher-section::before,
-  .select-cta::before {
-    animation-duration: 20s;
-    opacity: 0.65;
-  }
-
-  .voucher-section {
-    overflow: visible;
-  }
-}
-
-/* Acessibilidade */
 @media (prefers-reduced-motion: reduce) {
   .benefits::before,
   .studio-section::before,
   .massages::before,
   .voucher-section::before,
-  .select-cta::before {
+  .select-cta::before,
+  .detail-story::before,
+  .detail-gallery::before,
+  .grasi-testimonials::before,
+  .grasi-approach::before,
+  .detail-end::before,
+  .procedures-intro::before,
+  .procedures-list::before {
     animation: none;
-    will-change: auto;
+    transform: none;
   }
 }
-
 
 @media (max-width: 820px) {
   .site-header,

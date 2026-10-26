@@ -43,6 +43,110 @@
     element.textContent = String(new Date().getFullYear());
   });
 
+  // Animações acionadas quando as seções entram na tela
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
+
+  const sections = document.querySelectorAll("main > section");
+
+  if (
+    sections.length &&
+    "IntersectionObserver" in window &&
+    !reducedMotion.matches
+  ) {
+    const revealTargets = new Set();
+
+    const revealSelectors = [
+      ".hero-copy",
+      ".feature-photo",
+      ".feature-copy",
+      ".studio-details-heading",
+      ".studio-gallery-photo",
+      ".studio-note-grid article",
+      ".section-heading",
+      ".massage-item",
+      ".massage-cta",
+      ".voucher-heading",
+      ".voucher-form-heading",
+      ".voucher-notice",
+      ".voucher-submit",
+      ".detail-copy",
+      ".detail-photo",
+      ".grasi-story-heading",
+      ".grasi-story-column",
+      ".detail-gallery .photo-slot",
+      ".testimonials-heading",
+      ".testimonial-card",
+      ".procedures-heading",
+      ".procedure-card",
+      ".select-cta > *"
+    ].join(",");
+
+    sections.forEach((section) => {
+      section.classList.add("scroll-story-section");
+
+      section.querySelectorAll(revealSelectors).forEach((element) => {
+        // Não anima individualmente os campos do formulário.
+        if (element.closest(".voucher-fields")) return;
+
+        element.classList.add("scroll-reveal");
+        revealTargets.add(element);
+      });
+
+      const storyImage = section.querySelector(
+        ".feature-photo img, " +
+        ".detail-photo img, " +
+        ".procedures-hero-photo img, " +
+        ".procedure-photo img"
+      );
+
+      if (storyImage) {
+        storyImage.classList.add("scroll-story-image");
+      }
+    });
+
+    document.documentElement.classList.add("has-scroll-reveal");
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -6% 0px"
+      }
+    );
+
+    revealTargets.forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle(
+            "is-in-view",
+            entry.isIntersecting
+          );
+        });
+      },
+      {
+        threshold: 0.25,
+        rootMargin: "-12% 0px -12% 0px"
+      }
+    );
+
+    sections.forEach((section) => {
+      sectionObserver.observe(section);
+    });
+  }
+
   // Formulário de voucher
   const voucherForm = document.querySelector("#voucher-form");
 
@@ -64,14 +168,24 @@
         "",
         "DADOS DO COMPRADOR",
         `Nome completo: ${getValue("comprador")}`,
+        `Data de nascimento: ${
+          getValue("nascimento_comprador") || "Não informada"
+        }`,
+        `CPF: ${getValue("cpf")}`,
         `WhatsApp: ${getValue("whatsapp_comprador")}`,
         `E-mail: ${getValue("email") || "Não informado"}`,
         "",
         "DADOS DO PRESENTEADO",
         `Nome: ${getValue("presenteado")}`,
-        `WhatsApp: ${getValue("whatsapp_presenteado") || "Não informado"}`,
+        `WhatsApp: ${
+          getValue("whatsapp_presenteado") || "Não informado"
+        }`,
+        `Data de nascimento: ${
+          getValue("nascimento_presenteado") || "Não informada"
+        }`,
         "",
         "DETALHES DO VOUCHER",
+        `Pagamento: ${getValue("pagamento")}`,
         `Massagem/procedimento: ${getValue("massagem")}`,
         `Forma de entrega: ${getValue("entrega")}`,
         `Ocasião: ${getValue("ocasiao") || "Não informada"}`,
@@ -80,26 +194,23 @@
         getValue("dedicatoria") || "Sem dedicatória.",
         "",
         "Gostaria de receber as orientações para confirmar o voucher, o valor e o pagamento.",
-        "Estou ciente de que o agendamento deve ser solicitado em até 60 dias e está sujeito à disponibilidade do Spa.",
+        "Estou ciente de que o agendamento deve ser solicitado em até 60 dias e está sujeito à disponibilidade do Spa."
       ].join("\n");
 
       const whatsappNumber = "553187996633";
-      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      const whatsappUrl =
+        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
       window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     });
   }
-  
-})();
 
-
-/* Parallax da fotografia principal da página da Grasi */
-(() => {
+  // Parallax da fotografia principal da página da Grasi
   const image = document.querySelector(".grasi-parallax-image");
 
   if (!image) return;
 
-  const reducedMotion = window.matchMedia(
+  const parallaxMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   );
 
@@ -108,7 +219,7 @@
   function updateGrasiParallax() {
     frameRequested = false;
 
-    if (reducedMotion.matches) {
+    if (parallaxMotion.matches) {
       image.style.transform = "none";
       return;
     }
@@ -119,9 +230,7 @@
 
     const rect = container.getBoundingClientRect();
 
-    if (rect.bottom < 0 || rect.top > window.innerHeight) {
-      return;
-    }
+    if (rect.bottom < 0 || rect.top > window.innerHeight) return;
 
     const distanceFromCenter =
       rect.top + rect.height / 2 - window.innerHeight / 2;
@@ -150,7 +259,11 @@
     passive: true
   });
 
-  reducedMotion.addEventListener?.("change", requestParallaxUpdate);
+  parallaxMotion.addEventListener?.(
+    "change",
+    requestParallaxUpdate
+  );
 
   requestParallaxUpdate();
+  
 })();

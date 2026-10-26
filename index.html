@@ -19,7 +19,10 @@
 
   <link rel="stylesheet" href="css/style.css">
 
-  <script src="js/script.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.19/jquery.scrollify.min.js" defer></script>
+<script src="js/script.js" defer></script>
+
 </head>
 
 <body>
@@ -62,13 +65,27 @@
     <section class="studio-section" id="studio" aria-labelledby="studio-title">
 
 <div class="feature feature-studio">
-  <div class="photo-slot feature-photo studio-photo">
-    <img src="assets/imagens/imagem-spa.jpg" alt="Ambiente do Lake Spa">
+  <div class="feature-background">
+    <img
+      src="assets/imagens/imagem-spa.jpg"
+      alt="Ambiente do Lake Spa"
+    >
   </div>
 
+  <div class="feature-overlay"></div>
+
   <div class="feature-copy">
-    <h2 id="studio-title">Um lugar para<br><em>fazer uma pausa.</em></h2>
-    <p>Descubra um espaço pensado para renovar suas energias, cuidar de você e transformar cada pausa em um momento especial.</p>
+
+    <h2 id="studio-title">
+      Um lugar para<br>
+      <em>fazer uma pausa.</em>
+    </h2>
+
+    <p>
+      Descubra um espaço pensado para renovar suas energias,
+      cuidar de você e transformar cada pausa em um momento especial.
+    </p>
+
   </div>
 </div>
       
@@ -113,8 +130,7 @@
   
     <h2>Presenteie com um momento de <em>bem-estar.</em></h2>
     <p>
-      Transforme o cuidado em presente. Escolha uma experiência
-      de massagem no Lake Spa e surpreenda alguém especial.
+      Ofereça momentos de relaxamento com um vale-presente para massagem. O presente perfeito para aniversários, feriados ou como forma de agradecimento para amigos, familiares, e pessoas que você ama.
     </p>
     <p class="voucher-heading-note">
       Um presente pensado para proporcionar relaxamento,
@@ -328,8 +344,6 @@
   </form>
 </section>
 
-
-  
 <footer class="site-footer" id="contato">
   <div class="footer-main">
 
