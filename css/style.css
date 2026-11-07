@@ -574,58 +574,7 @@ h2 em {
 
 
 
-/* Feature Studio — imagem como fundo */
-
-.feature.feature-studio {
-  position: relative;
-  display: flex;
-  min-height: 620px;
-  align-items: center;
-  justify-content: flex-start;
-  overflow: hidden;
-  isolation: isolate;
-  background: var(--lake-dark);
-  color: #fff;
-}
-
-.feature-studio .feature-photo {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-}
-
-.feature-studio .feature-background {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-}
-
-.feature-studio .feature-background img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.feature-studio .feature-copy {
-  position: relative;
-  z-index: 1;
-  width: min(var(--content-width), calc(100% - 64px));
-  max-width: none;
-  margin: 0 auto;
-  padding: 100px 0;
-  text-align: left;
-  color: white;
-}
-
-.feature-studio .feature-overlay {
+.feature-overlay {
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -637,63 +586,94 @@ h2 em {
   );
 }
 
-.feature-studio .feature-copy {
-  position: relative;
-  z-index: 1;
-  width: min(var(--content-width), calc(100% - 64px));
-  margin: 0 auto;
-  padding-block: 100px;
-  text-align: left;
-}
-
-.feature-studio .feature-copy h2,
-.feature-studio .feature-copy h2 em,
-.feature-studio .feature-copy p,
-.feature-studio .feature-copy .eyebrow {
-  color: #ffffff;
-}
-
-.feature-studio .feature-copy h2 {
-  width: 100%;
-  max-width: 650px;
-  margin: 0 0 20px;
-  color: #fff;
-  text-align: left;
-}
-
-.feature-studio .feature-copy h2 em {
-  color: white;
-}
-
-.feature-studio .feature-copy p {
-  width: 100%;
-  max-width: 510px;
-  margin: 0;
-  line-height: 1.8;
-  text-align: left;
-  color: white !important;
-}
 
 /* Mobile */
 
-@media (max-width: 820px) {
-  .feature-studio .feature-copy {
-    width: calc(100% - 40px);
-    margin-inline: auto;
-    padding-block: 76px;
-    text-align: left;
-  }
-
-  .feature-studio .feature-copy h2,
-  .feature-studio .feature-copy p {
-    text-align: left;
-  }
-}
 
 .feature-grasi {
   grid-template-columns: 0.98fr 1.02fr;
   border-top: 1px solid var(--lake-line);
 }
+
+.feature.feature-studio {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 85px 24px;
+  background: transparent;
+}
+
+.feature-studio-card {
+  position: relative;
+  display: flex;
+  width: min(100%, 1080px);
+  min-height: 500px;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 45px;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 75px 15px 75px 15px;
+  background: var(--color-primary-dark);
+}
+
+/* Fotografia preenchendo toda a gota */
+.feature-studio-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Escurecimento suave para leitura do texto */
+.feature-studio-card::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(25, 43, 52, 0.65),
+    rgba(25, 43, 52, 0.25)
+  );
+  content: "";
+}
+
+.feature-studio .feature-copy {
+ position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 650px;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  text-align: left;
+}
+
+.feature-studio .feature-copy h2 {
+  margin: 0 0 20px;
+  color: #fff;
+  font-size: clamp(38px, 5vw, 58px);
+  line-height: 1.15;
+}
+
+.feature-studio .feature-copy h2 em {
+  color: #fff;
+}
+
+.feature-studio .feature-copy p {
+  max-width: 540px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+
 
 .grasi-hero .button-light {
   background: transparent;
@@ -706,6 +686,7 @@ h2 em {
   background: #f4f7f9;
   color: var(--color-primary-dark);
 }
+
 .feature-photo {
   position: relative;
   min-height: 420px;
@@ -1476,6 +1457,19 @@ h2 em {
   color: var(--color-primary-dark);
 }
 
+.grasi-hero .detail-photo {
+  height: auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.grasi-hero .detail-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
 
 .detail-photo img {
   display: block;
@@ -1820,7 +1814,225 @@ main > section.scroll-story-section.is-in-view .scroll-story-image {
   transform: scale(1);
 }
 
+/* Cursos, imersões e palestras — página da Grasi */
+
+.grasi-learning {
+  padding: 78px 24px 120px;
+  background: var(--color-primary);
+}
+
+.grasi-learning-inner {
+  width: min(var(--content-width), 100%);
+  margin: 0 auto;
+}
+
+.grasi-learning-heading {
+  max-width: 700px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.grasi-learning-heading .eyebrow {
+  color: #fff;
+}
+
+.grasi-learning-heading h2 {
+  margin: 10px 0 17px;
+  color: #fff;
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1.15;
+}
+
+.grasi-learning-heading h2 em {
+  color: #fff;
+  font-weight: 500;
+}
+
+.grasi-learning-heading > p:last-child,
+.learning-topic p {
+  color: #fff;
+  background: transparent;
+}
+
+.grasi-learning-heading .eyebrow,
+.learning-topic-number {
+  color: #dce8ee;
+}
+
+
+.grasi-learning-heading > p:last-child {
+  max-width: 570px;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+/* Card horizontal reservado para a futura fotografia */
+
+.learning-feature-card {
+  width: 100%;
+  aspect-ratio: 16 / 6.5;
+  min-height: 250px;
+  max-height: 430px;
+  margin-bottom: 38px;
+  overflow: hidden;
+  border: 1px solid rgba(60, 106, 133, 0.12);
+  border-radius: 75px 15px 75px 15px;
+  background: linear-gradient(
+    125deg,
+    #e3ebf0 0%,
+    #f7f9fa 48%,
+    #dce8ee 100%
+  );
+}
+
+/* Três modalidades */
+
+.learning-topics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 35px;
+}
+
+.learning-topic {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px 27px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 55px 12px 55px 12px;
+  background: rgba(255, 255, 255, 0.09);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.learning-topic:nth-child(2) {
+  border-radius: 12px 55px 12px 55px;
+}
+
+.learning-topic:nth-child(3) {
+  border-radius: 55px 12px 12px 55px;
+}
+
+.learning-topic:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+.learning-topic-number {
+  margin-bottom: 13px;
+  color: #dce8ee;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.learning-topic h3 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.learning-topic p {
+  flex: 1;
+  margin: 0 0 21px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+/* Botão pequeno com silhueta de gota */
+.learning-whatsapp {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 8px 15px 8px 17px;
+  border: 1px solid rgba(60, 106, 133, 0.38);
+  border-radius: 50% 50% 50% 10px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.learning-whatsapp:hover {
+  border-color: var(--color-primary-dark);
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.learning-whatsapp-arrow {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.grasi-hero .detail-photo,
+.detail-gallery .photo-slot {
+  overflow: hidden;
+  border-radius: 75px 15px 75px 15px;
+}
+
+.grasi-hero .detail-photo img,
+.detail-gallery .photo-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grasi-testimonials {
+  padding: 110px 24px 120px;
+}
+
+
+@media (min-width: 821px) {
+
+.feature.feature-studio {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 50px;
+  padding: 0 0 85px;
+}
+
+/* Card em toda a largura */
+.feature-studio-card {
+  width: 100%;
+  max-width: none;
+  min-height: 500px;
+  margin: 0;
+  padding: 70px 8%;
+  justify-content: flex-start;
+}
+
+/* Alinhamento do texto */
+.feature-studio .feature-copy {
+  width: 100%;
+  max-width: 650px;
+  margin: 0;
+  text-align: left;
+}
+
+.feature-studio .feature-copy p {
+  max-width: 540px;
+  margin: 0;
+  text-align: left;
+}
+
+
+
 /* Ajustes isolados para celular */
+
 @media (max-width: 820px) {
   html {
     scroll-snap-type: none;
@@ -2168,6 +2380,49 @@ main > section.scroll-story-section.is-in-view .scroll-story-image {
     order: 0;
   }
 
+  @media (max-width: 820px) {
+  .feature.feature-studio {
+    padding: 60px 22px;
+  }
+
+  .feature-studio-card {
+    padding: 38px 28px 42px;
+  }
+
+  .feature-studio .feature-copy {
+      margin: 0 auto;
+      transform: translateY(-25px);
+      text-align: center;
+  }
+
+  .feature-studio .feature-photo {
+    height: 380px;
+  }
+}
+
+@media (max-width: 520px) {
+  .feature.feature-studio {
+    padding: 45px 16px;
+  }
+
+  .feature-studio-card {
+    padding: 30px 18px 32px;
+    border-radius: 18px;
+  }
+
+  .feature-studio .feature-copy h2 {
+    font-size: 32px;
+  }
+
+  .feature-studio .feature-copy p {
+    font-size: 12px;
+  }
+
+  .feature-studio .feature-photo {
+    height: 300px;
+  }
+}
+
   .studio-details {
     width: calc(100% - 44px);
     padding-bottom: 60px;
@@ -2511,15 +2766,6 @@ main > section.scroll-story-section.is-in-view .scroll-story-image {
   }
 }
 
-/* Acessibilidade */
-
-  /* Responsividade dos depoimentos */
-
-/* Ajustes para celular */
-
-/* Acessibilidade */
-
-/* Movimento mais discreto em telas menores */
 
 /* Respeita a preferência por menos movimento */
 @media (prefers-reduced-motion: reduce) {
@@ -2547,5 +2793,61 @@ main > section.scroll-story-section.is-in-view .scroll-story-image {
   .voucher-submit::after {
     transition: none;
   }
+}
+
+.learning-topics {
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.learning-topic {
+  padding: 25px 24px;
+  border-radius: 42px 12px 42px 12px;
+}
+
+.learning-topic:nth-child(2) {
+  border-radius: 12px 42px 12px 42px;
+}
+
+.learning-topic:nth-child(3) {
+  border-radius: 42px 12px 12px 42px;
+}
+
+.grasi-hero .detail-photo,
+.detail-gallery .photo-slot {
+  border-radius: 42px 12px 42px 12px;
+}
+
+@media (max-width: 820px) {
+  .feature.feature-studio {
+    width: 100%;
+    padding: 55px 22px;
+  }
+
+  .feature-studio-card {
+    min-height: 420px;
+    padding: 55px 30px;
+    border-radius: 42px 12px 42px 12px;
+  }
+
+  .feature-studio .feature-copy h2 {
+    font-size: clamp(34px, 8vw, 44px);
+  }
+}
+
+@media (max-width: 520px) {
+  .feature.feature-studio {
+    padding: 42px 16px;
+  }
+
+  .feature-studio-card {
+    min-height: 370px;
+    padding: 42px 22px;
+  }
+
+  .feature-studio .feature-copy p {
+    font-size: 12px;
+  }
+
 }
 }
