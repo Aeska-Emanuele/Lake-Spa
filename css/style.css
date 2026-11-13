@@ -609,7 +609,7 @@ h2 em {
 .feature-studio-card {
   position: relative;
   display: flex;
-  width: calc(100% - 100px);
+  width: calc(140% - 140px);
   max-width: 1080px;
   min-height: 500px;
   align-items: center;
