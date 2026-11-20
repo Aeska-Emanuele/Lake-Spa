@@ -147,8 +147,8 @@ h2 em {
 
 .brand img {
   width: auto;
-  max-width: 180px;
-  max-height: 58px;
+  max-width: 10000px;
+  max-height: 130px;
   object-fit: contain;
 }
 
@@ -171,7 +171,7 @@ h2 em {
   justify-content: center;
   gap: clamp(22px, 3vw, 38px);
   margin-left: auto;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
 }
 
@@ -218,7 +218,7 @@ h2 em {
   border: 0;
   border-radius: 0;
   background: transparent;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   white-space: nowrap;
 }
@@ -1441,10 +1441,18 @@ h2 em {
 
 .detail-copy {
   max-width: 520px;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+
 }
 
 .detail-copy .eyebrow {
   color: white;
+  
 }
 
 .detail-copy h1 {
@@ -1453,7 +1461,8 @@ h2 em {
 }
 
 .detail-copy h1 em {
-  font-weight: 500;
+  font-weight: 5000px;
+  
 }
 
 .detail-copy > p:not(.eyebrow) {
@@ -1462,7 +1471,72 @@ h2 em {
   color: white;
   font-size: 13px;
   line-height: 1.85;
+  
 }
+
+.detail-copy::before,
+.detail-copy::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  background: currentColor;
+  opacity: 0.65;
+  transform: scale(0);
+  transition: none;
+  
+  
+}
+  .detail-copy::before {
+  top: -220px;
+  left: -100px;
+  width: 110%;
+  height: calc(100% + 499px);
+  border-top: 1.5px solid currentColor;
+  border-left: 1.5px solid currentColor;
+  border-radius: 28px 0 0 0;
+  background: none;
+  transform: scale(0);
+  transform-origin: top left;
+}
+
+.detail-copy::after {
+  content: none;
+
+}
+
+.detail-hero.lines-visible .detail-copy::before {
+  transform: scale(1);
+  transition: transform 1.2s ease;
+}
+
+
+
+/**
+.detail-copy::before {
+  top: -130px;
+  left: -20px;
+  width: 110%;
+  height: calc(100% + 499px);
+  border-top: 1.5px solid currentColor;
+  border-left: 1.5px solid currentColor;
+  border-radius: 28px 0 0 0;
+  background: none;
+  transform: scale(0);
+  transform-origin: top left;
+}
+
+.detail-copy::after {
+  content: none;
+
+}
+
+.detail-hero.lines-visible .detail-copy::before {
+  transform: scale(1);
+  transition: transform 1.2s ease;
+}
+*/
+
+
 
 .detail-photo {
   height: 580px;
@@ -2014,6 +2088,7 @@ main > section.scroll-story-section.is-in-view .scroll-story-image {
 
 
 
+
 @media (min-width: 821px) {
 
 .feature.feature-studio {
@@ -2127,16 +2202,25 @@ main > section.scroll-story-section.is-in-view .scroll-story-image {
   }
 
   .header-inner {
+    position: relative;
     width: calc(100% - 36px);
     gap: 12px;
   }
+
+  .brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+}
 
   .brand-name {
     font-size: 19px;
   }
 
   .brand img {
-    max-height: 48px;
+    max-height: 115px;
+  
   }
 
   .menu-toggle {
@@ -2157,6 +2241,7 @@ main > section.scroll-story-section.is-in-view .scroll-story-image {
     color: #fff;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+    margin-left: auto;
   }
 
   .menu-toggle span {
@@ -2581,12 +2666,54 @@ main > section.scroll-story-section.is-in-view .scroll-story-image {
 
   .detail-copy {
     margin: auto;
+    top: -5px;
   }
+
+  @media (max-width: 768px) {
+
+.detail-copy::before,
+.detail-copy::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  background: currentColor;
+  opacity: 0.65;
+  transform: scale(0);
+  transition: none;
+  
+  
+}
+  .detail-copy::before {
+  top: -20px;
+  left: -20px;
+  width: 110%;
+  height: calc(100% + 499px);
+  border-top: 1.5px solid currentColor;
+  border-left: 1.5px solid currentColor;
+  border-radius: 28px 0 0 0;
+  background: none;
+  transform: scale(0);
+  transform-origin: top left;
+}
+
+.detail-copy::after {
+  content: none;
+
+}
+
+.detail-hero.lines-visible .detail-copy::before {
+  transform: scale(1);
+  transition: transform 1.2s ease;
+}
+
+
+}
 
   .detail-copy > p:not(.eyebrow) {
     margin-right: auto;
     margin-left: auto;
   }
+
 
   .detail-photo {
     height: clamp(260px, 66vw, 390px);
@@ -2658,6 +2785,7 @@ main > section.scroll-story-section.is-in-view .scroll-story-image {
     margin-bottom: 0;
   }
 
+  
 
 /* Celulares pequenos */
 

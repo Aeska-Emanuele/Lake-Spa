@@ -267,3 +267,22 @@
   requestParallaxUpdate();
   
 })();
+
+
+const detailHero = document.querySelector('.detail-hero');
+
+if (detailHero) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        detailHero.classList.add('lines-visible');
+      } else {
+        detailHero.classList.remove('lines-visible');
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  observer.observe(detailHero);
+}
