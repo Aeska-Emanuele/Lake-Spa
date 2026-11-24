@@ -235,12 +235,12 @@ h2 em {
   grid-template-columns: 1.05fr 0.95fr;
   align-items: center;
   gap: clamp(35px, 7vw, 92px);
-  padding: 72px max(32px, calc((100% - var(--content-width)) / 2));
+  padding: 72px max(32px, calc((100% - var(--content-width)) / 2)) 115px;
   overflow: hidden;
   isolation: isolate;
   background-color: var(--color-primary);
   background-image: url("../assets/imagens/salacasal-2.jpg");
-  background-position: center;
+  background-position: center 60%;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -385,7 +385,6 @@ h2 em {
   color: #fff;
   font-size: 17px;
   line-height: 1.8;
-  
 }
 
 .hero-copy .button {
