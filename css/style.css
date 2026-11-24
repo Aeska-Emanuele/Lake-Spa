@@ -247,6 +247,15 @@ h2 em {
   color: #fff;
 }
 
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.30);
+  z-index: -1;
+  pointer-events: none;
+}
+
 .hero-collage {
   position: relative;
   width: min(100%, 570px);
@@ -348,29 +357,35 @@ h2 em {
 
 .hero-copy .eyebrow {
   margin-bottom: 20px;
-  color: #e5eef3;
+  color: #fff;
   font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.18em;
+  text-align: center;
+  transform: translate(350px);
 }
 
 .hero h1 {
   margin: 15px 0 24px;
   font-size: clamp(2.8rem, 5vw, 5rem);
   line-height: 1.08;
+  text-align: center;
+  transform: translate(350px);
 }
 
 .hero-copy h1 em {
   color: #fff;
   font-weight: 400;
+
 }
 
 .hero-copy > p:not(.eyebrow) {
-  max-width: 440px;
+  max-width: 100%;
   margin: 0 0 30px;
-  color: rgba(255, 255, 255, 0.94);
-  font-size: 1rem;
+  color: #fff;
+  font-size: 17px;
   line-height: 1.8;
+  
 }
 
 .hero-copy .button {
@@ -2219,7 +2234,7 @@ main > section.scroll-story-section.is-in-view .scroll-story-image {
   }
 
   .brand img {
-    max-height: 115px;
+    max-height: 125px;
   
   }
 
@@ -2407,7 +2422,7 @@ main > section.scroll-story-section.is-in-view .scroll-story-image {
 
 .hero-copy {
   width: 100%;
-  max-width: 480px;
+  max-width: none;
   margin: 0;
   padding: 20px 0 0;
   text-align: left;
@@ -2416,7 +2431,8 @@ main > section.scroll-story-section.is-in-view .scroll-story-image {
 }
 
   .hero-copy .eyebrow {
-    color: #e5eef3;
+    color: #fff;
+    transform: translate(100px);
   }
 
   .hero h1 {
@@ -2424,14 +2440,17 @@ main > section.scroll-story-section.is-in-view .scroll-story-image {
     color: #fff;
     font-size: clamp(42px, 8vw, 62px);
     line-height: 1.05;
+    transform: translate(100px);
   }
 
   .hero-copy > p:not(.eyebrow) {
-    max-width: 100%;
-    margin-bottom: 28px;
-    color: #fff;
-    font-size: 14px;
-    line-height: 1.85;
+
+  width: calc(100% + 190px);
+  max-width: none;
+  margin-bottom: 28px;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.9;
   }
 
   .section {
