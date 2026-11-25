@@ -235,7 +235,7 @@ h2 em {
   grid-template-columns: 1.05fr 0.95fr;
   align-items: center;
   gap: clamp(35px, 7vw, 92px);
-  padding: 72px max(32px, calc((100% - var(--content-width)) / 2)) 115px;
+  padding: 72px max(32px, calc((100% - var(--content-width)) / 2)) 112px;
   overflow: hidden;
   isolation: isolate;
   background-color: var(--color-primary);
@@ -677,6 +677,7 @@ h2 em {
   color: #fff;
   font-size: clamp(38px, 5vw, 58px);
   line-height: 1.15;
+  transform: translate(275px);
 }
 
 .feature-studio .feature-copy h2 em {
@@ -687,10 +688,10 @@ h2 em {
   max-width: 540px;
   margin: 0 auto;
   color: rgba(255, 255, 255, 0.95);
-  font-size: 13px;
+  font-size: 20px;
   line-height: 1.9;
+  transform: translate(240px);
 }
-
 
 
 .grasi-hero .button-light {
@@ -1881,6 +1882,7 @@ main > section {
 }
 
 /* Rolagem com encaixe suave no desktop */
+
 @media (min-width: 821px) and (prefers-reduced-motion: no-preference) {
   html {
     scroll-snap-type: y proximity;
@@ -2137,6 +2139,7 @@ main > section.scroll-story-section.is-in-view .scroll-story-image {
   max-width: 540px;
   margin: 0;
   text-align: left;
+  font-size: 16px;
 }
 
 
@@ -2551,10 +2554,12 @@ main > section.scroll-story-section.is-in-view .scroll-story-image {
 
   .feature-studio .feature-copy h2 {
     font-size: 32px;
+    transform: translate(10px)
   }
 
   .feature-studio .feature-copy p {
-    font-size: 12px;
+    font-size: 14px;
+    transform: translate(10px)
   }
 
   .feature-studio .feature-photo {
@@ -3036,19 +3041,4 @@ main > section.scroll-story-section.is-in-view .scroll-story-image {
   }
 }
 
-@media (max-width: 520px) {
-  .feature.feature-studio {
-    padding: 42px 16px;
-  }
-
-  .feature-studio-card {
-    min-height: 370px;
-    padding: 42px 22px;
-  }
-
-  .feature-studio .feature-copy p {
-    font-size: 12px;
-  }
-
-}
 }
